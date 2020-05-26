@@ -11,4 +11,4 @@ jobs:
         env:
           GO111MODULE: "on"
         with:
-          args: go test ./...
+          args: "go test ./..."

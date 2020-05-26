@@ -6,10 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: run all tests
+      - name: run product tests
         uses: cedrickring/golang-action@1.5.2
         env:
           GO111MODULE: "on"
           PROJECT_PATH: "./src/product/model"
         with:
           args: go test
+      - name: run other tests
+        uses: cedrickring/golang-action@1.5.2
+        env:
+          GO111MODULE: "on"
+        with:
+          args: go test ./...

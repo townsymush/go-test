@@ -1,0 +1,14 @@
+on: push
+name: Model Tests
+jobs:
+  checks:
+    name: run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: run all tests
+        uses: cedrickring/golang-action@1.5.2
+        env:
+          GO111MODULE: "on"
+        with:
+          args: go test ./...
